@@ -28,4 +28,6 @@ jobs:
       - name: Publish to GitHub Packages
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: nuget push "./output/*.nupkg" -Source "https://nuget.pkg.github.com/<YOUR_USERNAME>/index.json" -ApiKey $NUGET_AUTH_TOKEN
+        run: nuget push "./output/*.nupkg" -Source "https://nuget.pkg.github.com/MTUser/index.json" -ApiKey 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
+
+        
