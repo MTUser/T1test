@@ -28,12 +28,9 @@ jobs:
       - name: Github Owner Details
         run: echo  ${{ github.repository_owner }}
         
-      - name: Configure npm to use GitHub Packages
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.API_SECRET }}" > ~/.npmrc
-          echo "@OWNER:registry=https://npm.pkg.github.com" >> ~/.npmrc
-        env:
-          OWNER: ${{ github.repository_owner }}
+      - name: Authenticate with GitHub Packages
+        run: dotnet nuget add source --username MTUser --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/MTUser/index.json"
+
      
 
       - name: Publish to GitHub Packages
