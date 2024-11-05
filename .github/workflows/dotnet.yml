@@ -31,7 +31,9 @@ jobs:
       - name: Authenticate with GitHub Packages
         run: dotnet nuget add source --username MTUser --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/MTUser/index.json"
 
-     
+      - name: List all Nuget File
+        run: ls -l ./output/
+    
 
       - name: Publish to GitHub Packages
         env:
