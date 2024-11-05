@@ -1,0 +1,31 @@
+name: Publish .NET Framework 4.8 Package
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to use
+
+jobs:
+  publish:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Framework 4.8
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Restore NuGet packages
+        run: nuget restore YourProject.sln
+
+      - name: Build project
+        run: msbuild YourProject.sln /p:Configuration=Release
+
+      - name: Pack .NET Framework 4.8 project
+        run: msbuild WebApp1.csproj /t:pack /p:Configuration=Release /p:PackageOutputPath=./output
+
+      - name: Publish to GitHub Packages
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: nuget push "./output/*.nupkg" -Source "https://nuget.pkg.github.com/<YOUR_USERNAME>/index.json" -ApiKey $NUGET_AUTH_TOKEN
