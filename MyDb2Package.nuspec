@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>IbmDB2dll</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>YourName</authors>
     <owners>YourOrganization</owners>
     <description>A custom NuGet package for IBM DB2 .NET DLL</description>
