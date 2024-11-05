@@ -8,6 +8,8 @@ on:
 jobs:
   publish:
     runs-on: windows-latest
+    env:  # Define env variables at the job level
+      myprojart: ${{github.workspace}}\ _PubFiles
 
     steps:
       - name: Checkout code
@@ -23,7 +25,7 @@ jobs:
         run: msbuild WebApp1.csproj /p:Configuration=Release
 
       - name: Pack .NET Framework 4.8 project
-        run:  nuget pack MyDb2Package.nuspec -OutputDirectory ./output
+        run:  nuget pack MyDb2Package.nuspec -OutputDirectory myprojart
 
       - name: Github Owner Details
         run: echo  ${{ github.repository_owner }}
@@ -32,12 +34,12 @@ jobs:
         run: dotnet nuget add source --username MTUser --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/MTUser/index.json"
 
       - name: List all Nuget File
-        run: ls -R ./output
+        run: ls -R myprojart
     
 
       - name: Publish to GitHub Packages
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.API_SECRET }}
-        run: nuget push ./output/*.nupkg -Source "https://nuget.pkg.github.com/MTUser/index.json" -ApiKey ${{ secrets.API_SECRET }}
+        run: nuget push myprojart\*.nupkg -Source "https://nuget.pkg.github.com/MTUser/index.json" -ApiKey ${{ secrets.API_SECRET }}
 
         
