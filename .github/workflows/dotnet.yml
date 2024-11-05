@@ -23,7 +23,7 @@ jobs:
         run: msbuild WebApp1.csproj /p:Configuration=Release
 
       - name: Pack .NET Framework 4.8 project
-        run: msbuild WebApp1.csproj /t:pack /p:Configuration=Release /p:PackageOutputPath=./output
+        run:  nuget pack MyDb2Package.nuspec -OutputDirectory ./output
 
       - name: Publish to GitHub Packages
         env:
