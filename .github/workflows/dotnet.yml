@@ -26,7 +26,7 @@ jobs:
         run:  nuget pack MyDb2Package.nuspec -OutputDirectory ./output
 
       - name: Run all the Files
-        run:  ls -l ./output/*.nupkg
+        run:  ls -l ./output/
 
       - name: Publish to GitHub Packages
         env:
