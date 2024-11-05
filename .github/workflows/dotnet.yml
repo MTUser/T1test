@@ -25,8 +25,16 @@ jobs:
       - name: Pack .NET Framework 4.8 project
         run:  nuget pack MyDb2Package.nuspec -OutputDirectory ./output
 
-      #- name: Run all the Files
-        #run: echo 
+      - name: Github Owner Details
+        run: echo  ${{ github.repository_owner }}
+        
+      - name: Configure npm to use GitHub Packages
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.API_SECRET }}" > ~/.npmrc
+          echo "@OWNER:registry=https://npm.pkg.github.com" >> ~/.npmrc
+        env:
+          OWNER: ${{ github.repository_owner }}
+     
 
       - name: Publish to GitHub Packages
         env:
