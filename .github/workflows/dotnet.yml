@@ -20,7 +20,7 @@ jobs:
         run: nuget restore YourProject.sln
 
       - name: Build project
-        run: msbuild YourProject.sln /p:Configuration=Release
+        run: msbuild WebApp1.csproj /p:Configuration=Release
 
       - name: Pack .NET Framework 4.8 project
         run: msbuild WebApp1.csproj /t:pack /p:Configuration=Release /p:PackageOutputPath=./output
