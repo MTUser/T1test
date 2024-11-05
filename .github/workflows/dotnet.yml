@@ -25,9 +25,12 @@ jobs:
       - name: Pack .NET Framework 4.8 project
         run:  nuget pack MyDb2Package.nuspec -OutputDirectory ./output
 
+      - name: Run all the Files
+        run:  ls -l ./output/*.nupkg
+
       - name: Publish to GitHub Packages
         env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: nuget push "./output/*.nupkg" -Source "https://nuget.pkg.github.com/MTUser/index.json" -ApiKey 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
+          NUGET_AUTH_TOKEN: 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
+        run: nuget push "./output/*.nupkg" -Source "https://nuget.pkg.github.com/MTUser/index.json" -ApiKey $NUGET_AUTH_TOKEN
 
         
