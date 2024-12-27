@@ -39,7 +39,7 @@ jobs:
         run: |
             echo "CUSTOM_VAR=IT WORKS" >> $GITHUB_ENV
             
-            echo "HII"
+            echo ${{ env.CUSTOM_VAR }}
              
   
      
