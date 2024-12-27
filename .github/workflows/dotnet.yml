@@ -1,4 +1,4 @@
-xname: Publish .NET Framework 4.8 Package
+name: Publish .NET Framework 4.8 Package
 
 on:
   push:
