@@ -35,37 +35,10 @@ jobs:
 
       - name: Set custome ENV avariables
         run: |
-            echo "$VSWHERE_PATH=env: Program Files\vswhere" >> $env: GITHUB_PATH 
+            #echo "$VSWHERE_PATH=env: Program Files\vswhere"
             echo $env
   
-      - name: Github List all Files
      
-        run: |
-            ls -l ${{ github.workspace }}
-            echo ${{ github.workspace }}\myfolder\vswhere.exe
-
-
-      - name: Folder Exists
-        run: |
-          if (TEST-PATH  ${{ github.workspace }}\myfolder)  
-          {
-              Write-Host "vswhere folder exists!"
-          } else 
-          {
-              Write-Host "vswhere folder doesn't exists."
-            }
-
-
-      - name:  Finally check the final Path
-        run: |
-
-            $mypa = ${{ github.workspace }}\myfolder\vswhere.exe 
-            #Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
-             $commandInfo = Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
-             $versionInfo = $commandInfo.Version
-             Write-Host "Version: $($versionInfo)"
-            #${{ github.workspace }}\myfolder\vswhere.exe -version
-            echo $env
    
 
         
