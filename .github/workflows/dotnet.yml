@@ -36,8 +36,9 @@ jobs:
       - name: Set custome ENV avariables
         run: |
             #echo "$VSWHERE_PATH=env: Program Files\vswhere"
-            echo $env
-             echo $VSWHERE_PATH
+            echo "$env"
+            echo $VSWHERE_PATH
+             
   
      
    
