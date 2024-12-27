@@ -41,6 +41,7 @@ jobs:
      
         run: |
             Get-Command ${{ github.workspace }}\myfolder\vswhere.exe
+            Get-Command -Name Get-ChildItem -Version 3.1.0.0
             #${{ github.workspace }}\myfolder\vswhere.exe -version
             echo $env
    
