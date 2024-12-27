@@ -40,8 +40,8 @@ jobs:
       - name: Finally check the final Parth
      
         run: |
-            Get-Command ${{ github.workspace }}\myfolder\vswhere.exe
-            Get-Command -Name Get-ChildItem -version 3.1.0.0
+            Get-Command ${{ github.workspace }}\myfolder\vswhere.exe -version
+          
             #${{ github.workspace }}\myfolder\vswhere.exe -version
             echo $env
    
