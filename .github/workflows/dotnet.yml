@@ -42,7 +42,7 @@ jobs:
         run: |
             Get-Command ${{ github.workspace }}\myfolder\vswhere.exe
             vswhere.exe -version
-            echo $env: Path
+            echo $env
    
 
         
