@@ -41,7 +41,7 @@ jobs:
      
         run: |
 
-            
+            $mypa = ${{ github.workspace }}\myfolder\vswhere.exe 
             #Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
              $commandInfo = Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
              $versionInfo = $commandInfo.Version
