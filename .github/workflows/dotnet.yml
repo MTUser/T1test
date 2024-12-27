@@ -37,8 +37,19 @@ jobs:
             ls -l ${{ github.workspace }}
             echo ${{ github.workspace }}\myfolder\vswhere.exe
 
-      - name: Finally check the final Parth
-     
+
+      - name: Folder Exists
+        run: |
+          if (TEST-PATH  ${{ github.workspace }}\myfolder)  
+          {
+              Write-Host "vswhere folder exists!"
+          } else 
+          {
+              Write-Host "vswhere folder doesn't exists."
+            }
+
+
+      - name:  Finally check the final Path
         run: |
 
             $mypa = ${{ github.workspace }}\myfolder\vswhere.exe 
