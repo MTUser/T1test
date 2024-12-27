@@ -41,7 +41,7 @@ jobs:
      
         run: |
             Get-Command ${{ github.workspace }}\myfolder\vswhere.exe
-            vswhere.exe -version
+            ${{ github.workspace }}\myfolder\vswhere.exe -version
             echo $env
    
 
