@@ -5,41 +5,29 @@ on:
     branches:
       - master  # or the branch you want to use
 
+
+
+
 jobs:
   publish:
     runs-on: windows-latest
     env:  # Define env variables at the job level
-      myprojart: ${{github.workspace}}\ _PubFiles
+      build_projectName: "DCFHW"
+      build_workspace: "DEV/DCFHW"
+      build_solutionPath: "DEV/DCFHW/DCFHW.sln"
+      build_configuration: Release
+      build_run_id: ${{ github.run_id }}
+      build_stagingPath: ./ArtifactStaging
+      build_artifactPath: ./DEV/DCFHW/DCFHW/ArtifactStaging
+      vswarepath: "C:\\Program Files\\vswhere"
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup .NET Framework 4.8
-        uses: microsoft/setup-msbuild@v1
-
-      - name: Restore NuGet packages
-        run: nuget restore WebApp1.sln
-
-      - name: Build project
-        run: msbuild WebApp1.csproj /p:Configuration=Release
-
-      - name: Pack .NET Framework 4.8 project
-        run:  nuget pack MyDb2Package.nuspec -OutputDirectory myprojart
-
-      - name: Github Owner Details
-        run: echo  ${{ github.repository_owner }}
-        
-      - name: Authenticate with GitHub Packages
-        run: dotnet nuget add source --username MTUser --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/MTUser/index.json"
-
-      - name: List all Nuget File
-        run: ls -R myprojart
-    
-
-      - name: Publish to GitHub Packages
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.API_SECRET }}
-        run: nuget push myprojart\*.nupkg -Source "https://nuget.pkg.github.com/MTUser/index.json" -ApiKey ${{ secrets.API_SECRET }}
+        run: |
+            $url = "https://github.com/microsoft/vswhere/releases/latest/download/vswhere.exe" 
+            $output = $env: Programfiles\vswhere\vswhere.exe
+            New-Item -ItemType Directory -Path (Split-Path $output) -Force 
+            Invoke-WebRequest -Uri $url -OutFile $output
+            shell: powershell
 
         
