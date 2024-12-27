@@ -42,7 +42,7 @@ jobs:
         run: |
 
             $exePath = ${{ github.workspace }}\myfolder\vswhere.exe 
-            Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
+            #Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
              $commandInfo = Get-Command $exePath
              $versionInfo = $commandInfo.Version
              Write-Host "Version: $($versionInfo)"
