@@ -38,7 +38,7 @@ jobs:
       - name: Set custome ENV avariables
         run: |
             
-            echo  $GITHUB_ENV 
+            echo  ${{ $GITHUB_ENV }}
              
   
      
