@@ -37,6 +37,12 @@ jobs:
             ls -l ${{ github.workspace }}
             echo ${{ github.workspace }}\myfolder\vswhere.exe
 
-    
+      - name: Finally check the final Parth
+     
+        run: |
+            Get-Command ${{ github.workspace }}\myfolder\vswhere.exe
+            vswhere.exe -version
+            echo $env: Path
+   
 
         
