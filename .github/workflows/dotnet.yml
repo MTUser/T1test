@@ -1,4 +1,4 @@
-name: Publish .NET Framework 4.8 Package
+xname: Publish .NET Framework 4.8 Package
 
 on:
   push:
@@ -41,7 +41,7 @@ jobs:
      
         run: |
             Get-Command ${{ github.workspace }}\myfolder\vswhere.exe
-            Get-Command -Name Get-ChildItem -Version 3.1.0.0
+            Get-Command -Name Get-ChildItem -version 3.1.0.0
             #${{ github.workspace }}\myfolder\vswhere.exe -version
             echo $env
    
