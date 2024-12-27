@@ -30,14 +30,14 @@ jobs:
             New-Item -ItemType Directory -Path (Split-Path $output) -Force 
             Invoke-WebRequest -Uri $url -OutFile $output
             echo "Stqp11"
-            run: echo "::set-env name=vswarepath::failure"
+            
             echo $output
             
             #shell: pwsh
 
       - name: Set custome ENV avariables
         run: |
-           
+            echo "::set-env name=vswarepath::failure"
             
             echo "HII"
              
