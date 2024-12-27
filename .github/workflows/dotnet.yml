@@ -29,6 +29,7 @@ jobs:
             
             New-Item -ItemType Directory -Path (Split-Path $output) -Force 
             Invoke-WebRequest -Uri $url -OutFile $output
+            echo "Stqp11"
             echo $output
             
             #shell: pwsh
