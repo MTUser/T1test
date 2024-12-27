@@ -40,8 +40,12 @@ jobs:
       - name: Finally check the final Parth
      
         run: |
-            Get-Command ${{ github.workspace }}\myfolder\vswhere.exe -version
-          
+
+            $exePath = ${{ github.workspace }}\myfolder\vswhere.exe 
+            Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
+             $commandInfo = Get-Command $exePath
+             $versionInfo = $commandInfo.Version
+             Write-Host "Version: $($versionInfo)"
             #${{ github.workspace }}\myfolder\vswhere.exe -version
             echo $env
    
