@@ -44,8 +44,11 @@ jobs:
       - name: Print GITHUB_ENV path
         run: echo "GITHUB_ENV path is $GITHUB_ENV"
 
-      - name: Print contents of GITHUB_ENV
-        run: cat $GITHUB_ENV
+      - name: Run PowerShell Script
+        run: |
+          Write-Output "Running PowerShell script"
+          Get-Date
+        shell: powershell
              
   
      
