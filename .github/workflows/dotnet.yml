@@ -22,15 +22,6 @@ jobs:
       vswarepath: "C:\\Program Files\\vswhere"
       GLOBAL_VAR: "This is a global variable"
 
-    steps:
-      - name: Checkout code
-        run: |
-            $url = "https://github.com/microsoft/vswhere/releases/latest/download/vswhere.exe" 
-            $output = "${{ github.workspace }}\myfolder\vswhere.exe"
-            
-            New-Item -ItemType Directory -Path (Split-Path $output) -Force 
-            Invoke-WebRequest -Uri $url -OutFile $output
-            echo "Stqp11"
-            
+              
             
      	
