@@ -37,7 +37,9 @@ jobs:
 
         # Below to try After come Back!!
       - name: Set an environment variable   
-        run: echo "MY_VAR=HelloWorld" >> $GITHUB_ENV
+        run: |
+         echo "MY_VAR=HelloWorld" >> $GITHUB_ENV
+         echo "GITHUB_ENV path is $GITHUB_ENV"
 
       - name: Print GITHUB_ENV path
         run: echo "GITHUB_ENV path is $GITHUB_ENV"
