@@ -20,6 +20,7 @@ jobs:
       build_stagingPath: ./ArtifactStaging
       build_artifactPath: ./DEV/DCFHW/DCFHW/ArtifactStaging
       vswarepath: "C:\\Program Files\\vswhere"
+      NAME: 'Snyk Demo'
 
     steps:
       - name: Checkout code
@@ -43,6 +44,10 @@ jobs:
 
       - name: Verify vswhere in PATH
         run: where vswhere
+
+      - name: Print name
+        run: echo "Hello $NAME"
+      
 
         
 
