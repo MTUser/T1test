@@ -44,11 +44,16 @@ jobs:
       - name: Print GITHUB_ENV path
         run: echo "GITHUB_ENV path is $GITHUB_ENV"
 
-      - name: Run PowerShell Script
+      - name: Convert backslashes to forward slashes
         run: |
-          Write-Output "Running PowerShell script"
-          Get-Date
-        shell: powershell
+          # Access the path from environment variable and replace backslashes
+          MODIFIED_PATH="${ORIGINAL_PATH//\\//}"
+          echo "MODIFIED_PATH=$MODIFIED_PATH" >> $GITHUB_ENV
+
+      - name: Verify modified path
+        run: |
+            echo $MODIFIED_PATH
+            echo GITHUB_ENV
              
   
      
