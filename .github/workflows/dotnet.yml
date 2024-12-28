@@ -57,7 +57,7 @@ jobs:
         run: | 
              echo   $GITHUB_ENV
              $mypa = ${{ github.workspace }}\myfolder\vswhere.exe
-             echo $mypa
+             echo ${{ github.workspace }}
         
 
         
