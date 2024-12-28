@@ -49,8 +49,7 @@ jobs:
         run: |
            echo "MODIFIED_PATH=this is Test" >> $GITHUB_ENV
      	
-      - name: Add vswhere to PATH
-        run: echo "C:\Program Files\vswhere" >> $GITHUB_PATH
+     
 
      
 
