@@ -52,12 +52,13 @@ jobs:
           # Replace this path with your actual path
           $ORIGINAL_PATH="path\\to\\your\\file.txt"
           echo "ORIGINAL_PATH=$ORIGINAL_PATH" >> $GITHUB_ENV
+          echo  "The Original Path is  $ORIGINAL_PATH"
 
       - name: Print name last steps
         run: | 
-             echo   $GITHUB_ENV
+             echo  "The vaklue is  $GITHUB_ENV"
              $mypa = ${{ github.workspace }}\myfolder\vswhere.exe
-             echo ${{ github.workspace }}
+             ls -l ${{ github.workspace }}\myfolder
         
 
         
