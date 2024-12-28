@@ -5,9 +5,6 @@ on:
     branches:
       - master  # or the branch you want to use
 
-
-
-
 jobs:
   publish:
     runs-on: windows-latest
@@ -21,7 +18,3 @@ jobs:
       build_artifactPath: ./DEV/DCFHW/DCFHW/ArtifactStaging
       vswarepath: "C:\\Program Files\\vswhere"
       GLOBAL_VAR: "This is a global variable"
-
-              
-            
-     	
