@@ -46,7 +46,7 @@ jobs:
         run: where vswhere
 
       - name: Print name
-        run: echo "Hello $NAME"
+        run: echo $env
       
 
         
