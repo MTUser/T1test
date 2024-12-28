@@ -50,7 +50,7 @@ jobs:
       - name: Set file path with backslashes
         run: |
           # Replace this path with your actual path
-          ORIGINAL_PATH="path\\to\\your\\file.txt"
+          $ORIGINAL_PATH="path\\to\\your\\file.txt"
           echo "ORIGINAL_PATH=$ORIGINAL_PATH" >> $GITHUB_ENV
 
       - name: Print name last steps
