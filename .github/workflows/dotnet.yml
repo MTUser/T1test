@@ -32,32 +32,5 @@ jobs:
             Invoke-WebRequest -Uri $url -OutFile $output
             echo "Stqp11"
             
-            echo $output
             
-            #shell: pwsh
-
-        # Below to try After come Back!!
-      - name: Set an environment variable   
-        run: |
-         echo "MY_VAR=HelloWorld" >> $GITHUB_ENV
-         echo "GITHUB_ENV path is $GITHUB_ENV"
-
-      - name: Print GITHUB_ENV path
-        run: echo "GITHUB_ENV path is $GITHUB_ENV"
-
-      - name: Convert backslashes to forward slashes
-        run: |
-           echo "MODIFIED_PATH=this is Test" >> $GITHUB_ENV
-           
      	
-     
-
-     
-
-    
-             
-  
-     
-   
-
-        
