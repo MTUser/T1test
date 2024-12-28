@@ -47,10 +47,19 @@ jobs:
 
       - name: Convert backslashes to forward slashes
         run: |
-          # Access the path from environment variable and replace backslashes
         
           echo "MODIFIED_PATH=this is Test" >> $GITHUB_ENV
-          echo "Global variable is ${{env.GLOBAL_VAR}}"
+       
+        	
+      - name: Dispaly global variable Values
+        run: |
+              echo "Global variable is ${{env.GLOBAL_VAR}}"
+
+      - name: Add vswhere to PATH
+        run: echo "C:\Program Files\vswhere" >> $GITHUB_PATH
+
+      - name: Verify vswhere in PATH
+        run: where vswhere
 
     
              
