@@ -45,10 +45,19 @@ jobs:
       - name: Verify vswhere in PATH
         run: where vswhere
 
-      - name: Print name
-        run: echo $env
-      
+     
+        
+      - name: Set file path with backslashes
+        run: |
+          # Replace this path with your actual path
+          ORIGINAL_PATH="path\\to\\your\\file.txt"
+          echo "ORIGINAL_PATH=$ORIGINAL_PATH" >> $GITHUB_ENV
 
+      - name: Print name last steps
+        run: | 
+             echo   $GITHUB_ENV
+             $mypa = ${{ github.workspace }}\myfolder\vswhere.exe
+             echo $mypa
         
 
         
