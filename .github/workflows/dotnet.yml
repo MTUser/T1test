@@ -50,12 +50,9 @@ jobs:
           # Access the path from environment variable and replace backslashes
         
           echo "MODIFIED_PATH=this is Test" >> $GITHUB_ENV
-          echo "Global variable is $env.GLOBAL_VAR"
+          echo "Global variable is ${{env.GLOBAL_VAR}}"
 
-      - name: Verify modified path
-        run: |
-            echo $MODIFIED_PATH
-            echo GITHUB_ENV
+    
              
   
      
