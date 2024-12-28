@@ -5,6 +5,9 @@ on:
     branches:
       - master  # or the branch you want to use
 
+
+
+
 jobs:
   publish:
     runs-on: windows-latest
@@ -17,4 +20,50 @@ jobs:
       build_stagingPath: ./ArtifactStaging
       build_artifactPath: ./DEV/DCFHW/DCFHW/ArtifactStaging
       vswarepath: "C:\\Program Files\\vswhere"
-      GLOBAL_VAR: "This is a global variable"
+
+    steps:
+      - name: Checkout code
+        run: |
+            $url = "https://github.com/microsoft/vswhere/releases/latest/download/vswhere.exe" 
+            $output = "${{ github.workspace }}\myfolder\vswhere.exe"
+            
+            New-Item -ItemType Directory -Path (Split-Path $output) -Force 
+            Invoke-WebRequest -Uri $url -OutFile $output
+            echo $output
+            
+            #shell: pwsh
+
+      - name: Set custome ENV avariables
+        run: |
+            #echo "$VSWHERE_PATH=env: Program Files\vswhere"
+            echo $env
+  
+      - name: Github List all Files
+     
+        run: |
+            ls -l ${{ github.workspace }}
+            echo ${{ github.workspace }}\myfolder\vswhere.exe
+
+
+      - name: Folder Exists
+        run: |
+          if (TEST-PATH  ${{ github.workspace }}\myfolder)  
+          {
+              Write-Host "vswhere folder exists!"
+          } else 
+          {
+              Write-Host "vswhere folder doesn't exists."
+            }
+
+
+      - name:  Finally check the final Path
+        run: |
+
+            $mypa = ${{ github.workspace }}\myfolder\vswhere.exe 
+            #Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
+             $commandInfo = Get-Command ${{ github.workspace }}\myfolder\vswhere.exe 
+             $versionInfo = $commandInfo.Version
+             Write-Host "Version: $($versionInfo)"
+            #${{ github.workspace }}\myfolder\vswhere.exe -version
+            echo $env
+   
