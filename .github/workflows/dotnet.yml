@@ -20,6 +20,7 @@ jobs:
       build_stagingPath: ./ArtifactStaging
       build_artifactPath: ./DEV/DCFHW/DCFHW/ArtifactStaging
       vswarepath: "C:\\Program Files\\vswhere"
+      GLOBAL_VAR: "This is a global variable"
 
     steps:
       - name: Checkout code
@@ -47,8 +48,9 @@ jobs:
       - name: Convert backslashes to forward slashes
         run: |
           # Access the path from environment variable and replace backslashes
-          MODIFIED_PATH="${ORIGINAL_PATH//\\//}"
-          echo "MODIFIED_PATH=$MODIFIED_PATH" >> $GITHUB_ENV
+        
+          echo "MODIFIED_PATH=this is Test" >> $GITHUB_ENV
+          echo "Global variable is $GLOBAL_VAR"
 
       - name: Verify modified path
         run: |
